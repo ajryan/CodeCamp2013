@@ -147,11 +147,8 @@
     <Content Include="Content\responsive-media.css" />
     <Content Include="Content\video\motu\flowplayer-3.2.16.swf" />
     <Content Include="Content\video\motu\flowplayer.controls-3.2.15.swf" />
-    <Content Include="Content\video\motu\remastering.m4v" />
-    <Content Include="Content\video\motu\remastering.mp4" />
     <Content Include="Global.asax" />
     <Content Include="51Degrees.mobi.config" />
-    <Content Include="Content\video\motu\remastering.webm" />
     <Content Include="Scripts\handlebars.js" />
     <Content Include="Scripts\handlebars.min.js" />
     <Content Include="Scripts\handlebars.runtime.js" />
