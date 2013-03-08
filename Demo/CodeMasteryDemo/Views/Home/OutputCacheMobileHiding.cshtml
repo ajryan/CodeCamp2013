@@ -1,0 +1,75 @@
+﻿@using CodeMasteryDemo
+@{
+    ViewBag.Title = "OutputCache-Friendly Mobile Hiding";
+}
+
+@section styles {
+    @Styles.Render("~/Content/mobile-hiding.css")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(function() {
+            var showViewports = function () {
+                $('#layout-viewport').text(document.documentElement.clientWidth + " x " + document.documentElement.clientHeight);
+                $('#visual-viewport').text(window.innerWidth + " x " + window.innerHeight);
+                $('#device-xdpi').text(screen.deviceXDPI);
+                $('#device-pixelratio').text(window.devicePixelRatio);
+            };
+            $(window).on('resize gesturechange scroll', showViewports);
+            showViewports();
+        });
+    </script>
+}
+
+<div class="pagewrap clearfix @Html.MobileClass()">
+    <header>
+        <h1>OutputCache-Friendly Mobile Hiding</h1>
+    </header>
+    <section class="content">
+        <h2>My super-cool blog</h2>
+        <div class="bodytext">
+            <p>Bacon ipsum dolor sit amet salami short loin strip steak, prosciutto filet mignon short ribs chuck t-bone sausage tri-tip bacon flank ground round doner cow. Ball tip meatball frankfurter turkey brisket. Brisket ball tip pork loin short loin. Biltong strip steak turducken bacon shoulder boudin sausage frankfurter. Sausage bresaola meatloaf hamburger ribeye. Chuck t-bone capicola sirloin jerky kielbasa ribeye shank. T-bone spare ribs pig shankle biltong pastrami filet mignon ground round, shoulder pork chop boudin.</p>
+            <p>Pastrami sausage ribeye, capicola ham hock chuck tail turkey venison pork belly tongue. Ham turkey drumstick salami pastrami bacon andouille. Bresaola drumstick tri-tip, pig swine fatback ham andouille meatloaf brisket. Ground round drumstick meatball brisket jowl t-bone bresaola. Bacon short loin tri-tip filet mignon boudin, shank andouille. Prosciutto meatball meatloaf venison jerky short loin turkey pork loin chuck pancetta shank doner boudin bacon.</p>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Layout viewport width x height</strong>:<br/>document.documentElement.clientWidth/Height</td>
+                    <td id="layout-viewport"></td>
+                </tr>
+                <tr>
+                    <td><strong>Visual viewport width x height</strong>:<br/>window.innerWidth/Height</td>
+                    <td id="visual-viewport"></td>
+                </tr>
+                <tr>
+                    <td><strong>Device XDPI</strong>:<br/>screen.deviceXDPI (IE8+)</td>
+                    <td id="device-xdpi"></td>
+                </tr>
+                <tr>
+                    <td><strong>Device Pixel Ratio</strong>:<br/>window.devicePixelRatio (Webkit)</td>
+                    <td id="device-pixelratio"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    @if (!Request.Browser.IsMobileDevice) {
+        <section class="sidebar">
+            <p>Check out my twitter feed:</p>
+            <ul>
+                <li>Post 1</li>
+                <li>Post 2</li>
+                <li>Post 3</li>
+                <li>Post 4</li>
+                <li>Post 5</li>
+                <li>Post 6</li>
+                <li>Post 7</li>
+                <li>Post 8</li>
+                <li>Post 9</li>
+                <li>Post 10</li>
+            </ul>
+        </section>
+    }
+</div>

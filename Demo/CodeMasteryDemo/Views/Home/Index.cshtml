@@ -1,0 +1,15 @@
+﻿@using CodeMasteryDemo
+@{
+    ViewBag.Title = "Code Mastery 2013 San Francisco - Responsive Web Design";
+}
+
+<div class="pagewrap clearfix @Html.MobileClass()">
+    <h1>Code Mastery 2013 San Francisco - Responsive Web Design</h1>
+
+    <h2>Demos</h2>
+    <ul>
+        <li>@Html.ActionLink("Responsive.gs Grid System", "ResponsiveGs")</li>
+        <li>@Html.ActionLink("Output-cache friendly mobile hiding", "OutputCacheMobileHiding")</li>
+        <li>@Html.ActionLink("Responsive Media", "ResponsiveMedia")</li>
+    </ul>
+</div>
