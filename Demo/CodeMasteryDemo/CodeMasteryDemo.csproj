@@ -140,6 +140,8 @@
     <Content Include="Content\images\motu\keys.jpg" />
     <Content Include="Content\images\motu\remastering_poster.jpg" />
     <Content Include="Content\images\motu\sing.jpg" />
+    <Content Include="Content\images\rect.png" />
+    <Content Include="Content\images\rect.svg" />
     <Content Include="Content\mobile-hiding.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\responsive-gs-16col.css" />

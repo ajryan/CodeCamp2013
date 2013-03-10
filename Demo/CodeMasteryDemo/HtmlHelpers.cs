@@ -65,7 +65,7 @@ namespace CodeMasteryDemo
         {
             var wrapperTag = new TagBuilder("div");
             wrapperTag.Attributes["class"] = "object-wrapper";
-            wrapperTag.Attributes["style"] = "position: relative; padding-top: 25px; padding-bottom: 56.25%; height: 0px";
+            wrapperTag.Attributes["style"] = "position: relative; height: 0px; padding-top: 25px; padding-bottom: 56.25%;";
 
             var objectTag = new TagBuilder("object");
             var objectAttributes = new

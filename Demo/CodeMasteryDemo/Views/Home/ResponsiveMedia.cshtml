@@ -44,17 +44,23 @@
                 <img src="~/Content/images/motu/drummer.jpg" />
             </div>
         </div>
+        <div class="lightbox">
+            <img src="@Url.Content("~/Content/images/rect.svg")" >
+                <img src="~/Content/images/rect.png">
+            </img>
+        </div>
     </section>
     <section id="video">
         <header class="header-sub"><h2>Video</h2></header>
         <div class="lightbox">
             @Html.Video(
-                new[] { "http://ajryan-github-downloads.s3.amazonaws.com/remastering.webm", "http://ajryan-github-downloads.s3.amazonaws.com/remastering.mp4" },
+                new[] 
+                {
+                    "http://ajryan-github-downloads.s3.amazonaws.com/remastering.webm",
+                    "http://ajryan-github-downloads.s3.amazonaws.com/remastering.mp4"
+                },
                 "http://ajryan-github-downloads.s3.amazonaws.com/remastering.m4v",
                 "~/Content/images/motu/remastering_poster.jpg")
         </div>
     </section>
 </div>
-
-
-
