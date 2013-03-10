@@ -41,7 +41,7 @@
     display: block;
   }
 
-.lightbox object {
+.lightbox object, .fallback-img {
   margin: 0 auto;
   display: block;
 }
