@@ -1,0 +1,121 @@
+﻿.header-main {
+  padding: 1em 0 0.5em 0.5em;
+  background-color: #66cdaa;
+}
+
+.header-sub {
+    padding: 0.65em 0 0.5em 0.5em;
+    background-color: #cdaa66;
+    margin-bottom: 1em;
+}
+
+.form-head {
+  padding: 1em 6px 0.5em 8px;
+  width: 25%;
+}
+
+.control-group {
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+  clear: both;
+  overflow: hidden;
+}
+
+label,
+label.desc,
+legend,
+.control-entry,
+input,
+textarea
+{
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+
+label.desc, legend {
+  width: 25%;
+  float: left;
+  padding-right: 12px;
+}
+
+.control-entry {
+  width: 75%;
+  float: right;
+}
+
+input {
+  vertical-align: baseline;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  width: 65%;
+  margin: 0;
+}
+
+textarea {
+  font-family: sans-serif;
+  font-size: 0.8125em;
+}
+
+/* Goldilocks */
+
+/* too big! */
+@media (min-width: 60em) {
+  label, legend, .form-head {
+  	text-align: right;
+  }
+}
+
+/* too small! */
+@media (max-width: 30em) {
+  label.desc,
+  .form-head,
+  legend, 
+  .control-entry, 
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  textarea {
+    float: none;
+    width: 100%;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  select,
+  textarea {
+    padding: 0.5em;
+  }
+
+  .choice-group {
+    padding: 0.375em;
+    margin: 0.125em 0;
+    background-color: #f5f5f5;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+  }
+
+    .choice-group label {
+      width: 85%;
+      display: inline-block;
+    }
+
+  select {
+    padding-left: 0.25em;
+  }
+
+  input[type=submit] {
+    padding: 1em;
+  }
+
+  .control-entry {
+    padding-right: 0.5em;
+  }
+}

@@ -146,6 +146,7 @@
     <Content Include="Content\images\rect.svg" />
     <Content Include="Content\mobile-hiding.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\responsive-form.css" />
     <Content Include="Content\responsive-gs-16col.css" />
     <Content Include="Content\responsive-gs-ie.css" />
     <Content Include="Content\responsive-media.css" />
@@ -178,6 +179,7 @@
     <Content Include="Views\Home\ResponsiveGs.cshtml" />
     <Content Include="Views\Home\ResponsiveMedia.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Home\ResponsiveForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

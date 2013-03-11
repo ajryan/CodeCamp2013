@@ -10,7 +10,7 @@ namespace CodeMasteryDemo.Controllers
             return View();
         }
 
-        [OutputCache(Duration=60, VaryByCustom="Mobile")]
+        [OutputCache(Duration = 60, VaryByCustom = "Mobile")]
         public ActionResult OutputCacheMobileHiding()
         {
             return View();
@@ -27,6 +27,11 @@ namespace CodeMasteryDemo.Controllers
         }
 
         public ActionResult Regex()
+        {
+            return View();
+        }
+
+        public ActionResult ResponsiveForm()
         {
             return View();
         }
