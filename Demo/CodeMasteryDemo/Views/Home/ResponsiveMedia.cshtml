@@ -1,4 +1,5 @@
 ﻿@using CodeMasteryDemo
+@using CodeMasteryDemo.Helpers
 @{
     ViewBag.Title = "Responsive Media";
 }
@@ -36,7 +37,7 @@
             </div>
             <div class="image-group">
                 <img src="~/Content/images/motu/keys.jpg" />
-                <img src="~/Content/images/motu/sing.jpg" />
+                <img src="@Url.MobileImageContent("~/Content/images/motu/sing.jpg")" />
             </div>
         </div>
         <div class="lightbox">

@@ -5,30 +5,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CodeMasteryDemo
+namespace CodeMasteryDemo.Helpers
 {
-    public static class HtmlHelpers
+    public static class VideoHelpers
     {
-        public static MvcHtmlString MobileClass(this HtmlHelper helper)
-        {
-            string @class = HttpContext.Current.Request.Browser.IsMobileDevice
-                ? "mobile"
-                : "";
-
-            return new MvcHtmlString(@class);
-        }
-
         public static MvcHtmlString Video(
             this HtmlHelper helper,
             IEnumerable<string> sourceUrls,
             string flashFallbackSourceUrl,
-            string posterUrl,
+            string posterRelativePath,
             bool controls = true,
             bool preload = false,
             string id = null)
         {
-            if (posterUrl[0] == '~')
-                posterUrl = VirtualPathUtility.ToAbsolute(posterUrl);
+            var posterUrl = VirtualPathUtility.ToAbsolute(posterRelativePath);
 
             var videoTag = new TagBuilder("video");
             var videoAttributes = new
@@ -46,7 +36,7 @@ namespace CodeMasteryDemo
             for (int sourceIndex = 0; sourceIndex < sourceUrlArray.Length; sourceIndex++)
             {
                 var sourceUrl = sourceUrlArray[sourceIndex];
-                
+
                 var sourceTag = new TagBuilder("source");
                 sourceTag.Attributes["src"] = sourceUrl;
                 // omit type from final source
@@ -81,9 +71,9 @@ namespace CodeMasteryDemo
             objectTag.InnerHtml += ParamTag("allowFullScreen", "true");
             objectTag.InnerHtml += ParamTag("wmode", "transparent");
             objectTag.InnerHtml += ParamTag(
-                "flashVars", 
+                "flashVars",
                 String.Format(FLASH_VARS_FORMAT, posterUrl, sourceUrl));
-            
+
             wrapperTag.InnerHtml += objectTag.ToString(TagRenderMode.Normal);
             return wrapperTag.ToString(TagRenderMode.Normal);
         }
@@ -94,7 +84,7 @@ namespace CodeMasteryDemo
             tagBuilder.MergeAttributes(attributesDictionary);
         }
 
-        
+
         private static string ParamTag(string name, string value)
         {
             var paramTag = new TagBuilder("param");

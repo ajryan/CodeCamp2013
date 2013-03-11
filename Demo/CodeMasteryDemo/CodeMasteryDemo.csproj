@@ -130,7 +130,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlHelpers.cs" />
+    <Compile Include="Helpers\MobileHelpers.cs" />
+    <Compile Include="Helpers\VideoHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <Content Include="Content\images\motu\guitar.jpg" />
     <Content Include="Content\images\motu\keys.jpg" />
     <Content Include="Content\images\motu\remastering_poster.jpg" />
+    <Content Include="Content\images\motu\sing-small.jpg" />
     <Content Include="Content\images\motu\sing.jpg" />
     <Content Include="Content\images\rect.png" />
     <Content Include="Content\images\rect.svg" />
