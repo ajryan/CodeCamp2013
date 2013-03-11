@@ -19,6 +19,9 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0; }
+input, textarea {
+  font-size: 1em; /* avoid extra field zoom on iDevices */
+}
 
 /* Metro browser viewport */
 @-ms-viewport { width: device-width; }
