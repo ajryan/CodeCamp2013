@@ -7,6 +7,37 @@
     @Styles.Render("~/Content/responsive-form.css")
 }
 
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(function () {
+            var $classNote = $('#classnote');
+
+            var showSelectedClass = function (selectedRadio) {
+                var selected = selectedRadio.val();
+                $classNote.append('<span>' + selected + '</span><br/>');
+                console && console.log('showSelectedClass');
+            };
+            
+            showSelectedClass($('#class1'));
+            
+            $('input[type=radio]').on('click tap touchend', function (event) {
+                // TODO: avoid re-fire
+                //if (event.type === 'click') {
+                //    event.preventDefault();
+                //    return;
+                //}
+                //if (event.defaultPrevented) return;
+                
+                event.preventDefault();
+                showSelectedClass($(this));
+                console && console.log(event.type);
+            });
+        });
+
+    </script>
+}
+
 <div class="pagewrap clearfix @Html.MobileClass()">
     <header class="header-main">
         <h1>Responsive Form</h1>
@@ -70,6 +101,7 @@
                             <input id="class4" name="class" type="radio" value="Ranger" tabindex="8">
                             <label for="class4">Ranger</label>
                         </div>
+                        <div id="classnote"></div>
                     </div>
                 </fieldset>
             </div>
