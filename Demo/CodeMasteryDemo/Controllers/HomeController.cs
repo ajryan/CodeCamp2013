@@ -35,5 +35,10 @@ namespace CodeMasteryDemo.Controllers
         {
             return View();
         }
+
+        public ActionResult Typography()
+        {
+            return View();
+        }
     }
 }

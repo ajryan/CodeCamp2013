@@ -135,7 +135,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\black.gif" />
     <Content Include="Content\images\body_bg.png" />
+    <Content Include="Content\images\grid.gif" />
     <Content Include="Content\images\motu\drummer.jpg" />
     <Content Include="Content\images\motu\guitar.jpg" />
     <Content Include="Content\images\motu\keys.jpg" />
@@ -152,11 +154,14 @@
     <Content Include="Content\responsive-media.css" />
     <Content Include="Content\video\motu\flowplayer-3.2.16.swf" />
     <Content Include="Content\video\motu\flowplayer.controls-3.2.15.swf" />
+    <Content Include="Content\web_font_specimen.css" />
     <Content Include="Global.asax" />
     <Content Include="51Degrees.mobi.config" />
     <Content Include="Scripts\handlebars.js" />
     <Content Include="Scripts\handlebars.min.js" />
     <Content Include="Scripts\handlebars.runtime.js" />
+    <Content Include="web_font_specimen.html" />
+    <Content Include="Content\fonts\Lobster.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -180,6 +185,7 @@
     <Content Include="Views\Home\ResponsiveMedia.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\ResponsiveForm.cshtml" />
+    <Content Include="Views\Home\Typography.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
