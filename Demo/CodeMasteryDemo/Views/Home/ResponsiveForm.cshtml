@@ -11,6 +11,8 @@
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
         $(function () {
+            var supportTouchEnd = document.getElementById('class1').hasOwnProperty('ontouchend');
+
             var $classNote = $('#classnote');
 
             var showSelectedClass = function (selectedRadio) {
@@ -21,16 +23,14 @@
             
             showSelectedClass($('#class1'));
             
-            $('input[type=radio]').on('click tap touchend', function (event) {
-                // TODO: avoid re-fire
-                //if (event.type === 'click') {
-                //    event.preventDefault();
-                //    return;
-                //}
-                //if (event.defaultPrevented) return;
-                
-                event.preventDefault();
-                showSelectedClass($(this));
+            $('input[type=radio]').on('click touchend', function (event) {
+                if (supportTouchEnd && event.type === 'click')
+                    return;
+
+                //$('input[type=radio]').removeAttr('checked');
+                var $this = $(this);
+                //$this.attr('checked', 'checked');
+                showSelectedClass($this);
                 console && console.log(event.type);
             });
         });
