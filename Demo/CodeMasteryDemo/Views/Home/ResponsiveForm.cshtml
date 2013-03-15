@@ -11,8 +11,9 @@
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
         $(function() {
-            var supportTouchEnd = document.getElementById('class1').hasOwnProperty('ontouchend');
-
+            var supportTouch = document.getElementById('class1').hasOwnProperty('ontouchstart');
+            $('h1').append(supportTouch ? ' (Touch)' : ' (Mouse)');
+            
             var $classNote = $('#classnote');
 
             var showSelectedClass = function(selectedRadio) {
@@ -23,11 +24,11 @@
 
             showSelectedClass($('#class1'));
 
-            $('input[type=radio]').on('touchstart touchmove', function (event) {
-                event.preventDefault();
-            });
-            $('input[type=radio]').on('click touchend', function(event) {
-                if (supportTouchEnd && event.type === 'click')
+            //$('input[type=radio]').on('touchstart touchmove', function (event) {
+            //    event.preventDefault();
+            //});
+            $('input[type=radio]').on('click touchstart', function(event) {
+                if (supportTouch && event.type === 'click')
                     return;
 
                 //$('input[type=radio]').removeAttr('checked');
