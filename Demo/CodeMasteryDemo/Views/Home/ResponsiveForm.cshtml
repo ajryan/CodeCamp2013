@@ -10,20 +10,23 @@
 @section scripts {
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             var supportTouchEnd = document.getElementById('class1').hasOwnProperty('ontouchend');
 
             var $classNote = $('#classnote');
 
-            var showSelectedClass = function (selectedRadio) {
+            var showSelectedClass = function(selectedRadio) {
                 var selected = selectedRadio.val();
                 $classNote.append('<span>' + selected + '</span><br/>');
                 console && console.log('showSelectedClass');
             };
-            
+
             showSelectedClass($('#class1'));
-            
-            $('input[type=radio]').on('click touchend', function (event) {
+
+            $('input[type=radio]').on('touchstart touchmove', function (event) {
+                event.preventDefault();
+            });
+            $('input[type=radio]').on('click touchend', function(event) {
                 if (supportTouchEnd && event.type === 'click')
                     return;
 
