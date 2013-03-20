@@ -160,6 +160,8 @@
     <Content Include="Scripts\handlebars.js" />
     <Content Include="Scripts\handlebars.min.js" />
     <Content Include="Scripts\handlebars.runtime.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.hotkeys.min.js" />
     <Content Include="web_font_specimen.html" />
     <Content Include="Content\fonts\Lobster.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -186,6 +188,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\ResponsiveForm.cshtml" />
     <Content Include="Views\Home\Typography.cshtml" />
+    <Content Include="Views\Home\HotKeys.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -40,5 +40,10 @@ namespace CodeMasteryDemo.Controllers
         {
             return View();
         }
+
+        public ActionResult HotKeys()
+        {
+            return View();
+        }
     }
 }

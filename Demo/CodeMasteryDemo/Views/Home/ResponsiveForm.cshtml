@@ -24,9 +24,6 @@
 
             showSelectedClass($('#class1'));
 
-            //$('input[type=radio]').on('touchstart touchmove', function (event) {
-            //    event.preventDefault();
-            //});
             $('input[type=radio]').on('click touchstart', function(event) {
                 if (supportTouch && event.type === 'click')
                     return;
