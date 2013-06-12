@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("CodeMasteryDemo")]
-[assembly: AssemblyDescription("Demo for San Francisco Code Mastery 2013 - Responsive Web Design")]
+[assembly: AssemblyTitle("CodeCampDemo")]
+[assembly: AssemblyDescription("Demo for Silicon Valley Code Camp 2013 - Responsive Re-Engineering")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Magenic")]
-[assembly: AssemblyProduct("CodeMasteryDemo")]
+[assembly: AssemblyProduct("CodeCampDemo")]
 [assembly: AssemblyCopyright("Copyright © Aidan Ryan 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

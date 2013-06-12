@@ -1,9 +1,10 @@
-# Code Mastery 2013 - Responsive Web Design #
+# Silicon Valley Code Camp 2013 - Responsive Re-Engineering #
 
-[Aidan Ryan](http://ajryan.github.com) ([Magenic](http://magenic.com))
+[Aidan Ryan](http://www.aidanjryan.com) ([Magenic](http://magenic.com))
 
-This repository provides sample code as a companion to my Code Mastery 2013 talk "Responsive Web Design."
+This repository provides sample code as a companion to my Silicon Valley Code Camp 2013 talk "Responsive Re-Engineering."
 
 ## Demos ##
 
-1. OutputCache-Friendly hiding from mobile
+1. Responsive.gs grid system
+2. OutputCache-Friendly hiding from mobile
