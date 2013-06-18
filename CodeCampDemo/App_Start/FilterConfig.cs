@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace CodeMasteryDemo.App_Start
+namespace CodeCampDemo.App_Start
 {
     public static class FilterConfig
     {

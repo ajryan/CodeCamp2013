@@ -1,5 +1,4 @@
-﻿@using CodeMasteryDemo
-@using CodeMasteryDemo.Helpers
+﻿@using CodeCampDemo.Helpers
 @{
     ViewBag.Title = "OutputCache-Friendly Mobile Hiding";
 }
@@ -12,24 +11,30 @@
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
         $(function() {
-            var showViewports = function () {
+            var onResize = function () {
+                // display viewport stats
                 $('#layout-viewport').text(document.documentElement.clientWidth + " x " + document.documentElement.clientHeight);
                 $('#visual-viewport').text(window.innerWidth + " x " + window.innerHeight);
                 $('#device-xdpi').text(screen.deviceXDPI);
                 $('#device-pixelratio').text(window.devicePixelRatio);
+                
+                // match sidebar height to content
+                $('.sidebar').height($('.content').height());
             };
-            $(window).on('resize gesturechange scroll', showViewports);
-            showViewports();
+            $(window).on('resize gesturechange scroll', onResize);
+            onResize();
         });
     </script>
 }
 
 <div class="pagewrap clearfix @Html.MobileClass()">
-    <header>
+    <header class="header-main">
         <h1>OutputCache-Friendly Mobile Hiding</h1>
     </header>
     <section class="content">
-        <h2>My super-cool blog</h2>
+        <header class="header-sub">
+            <h2>My super-cool blog</h2>
+        </header>
         <div class="bodytext">
             <p>Bacon ipsum dolor sit amet salami short loin strip steak, prosciutto filet mignon short ribs chuck t-bone sausage tri-tip bacon flank ground round doner cow. Ball tip meatball frankfurter turkey brisket. Brisket ball tip pork loin short loin. Biltong strip steak turducken bacon shoulder boudin sausage frankfurter. Sausage bresaola meatloaf hamburger ribeye. Chuck t-bone capicola sirloin jerky kielbasa ribeye shank. T-bone spare ribs pig shankle biltong pastrami filet mignon ground round, shoulder pork chop boudin.</p>
             <p>Pastrami sausage ribeye, capicola ham hock chuck tail turkey venison pork belly tongue. Ham turkey drumstick salami pastrami bacon andouille. Bresaola drumstick tri-tip, pig swine fatback ham andouille meatloaf brisket. Ground round drumstick meatball brisket jowl t-bone bresaola. Bacon short loin tri-tip filet mignon boudin, shank andouille. Prosciutto meatball meatloaf venison jerky short loin turkey pork loin chuck pancetta shank doner boudin bacon.</p>

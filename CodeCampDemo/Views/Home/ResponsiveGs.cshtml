@@ -6,12 +6,6 @@
     @Styles.Render("~/Content/responsive-gs-16col.css")
 
     <style type="text/css">
-        .container {
-            background-color: #efefef;
-            -webkit-box-shadow: 0.6em 0.6em 0.5em rgba(5, 5, 5, 0.8);
-            box-shadow: 0.6em 0.6em 0.5em rgba(5, 5, 5, 0.8);
-            margin-top: 10px;
-        }
         .bg1 { background-color: #f0c0c0; }
         .bg2 { background-color: #c0f0c0; }
         .bg3 { background-color: #c0c0f0; }
@@ -23,16 +17,18 @@
             display: inline-block;
             margin-right: 0.5em;
         }
-        header, footer {
-            background-color: #66cdaa;
-            padding: 0.5em;
-        }
-        .headline {
-            vertical-align: bottom;
+            h1 a {
+                color: #006;
+            }
+            h1 a:visited {
+                color: #444;
+            }
+        h3 {
+            margin-bottom: 0.4em;
         }
         img.left-quarter {
             float: left;
-            margin: 0.5em 1em 0.5em 0;
+            margin: 0.2em 1em 0.5em 0;
             max-width: 25%;
             min-width: 100px;
         }
@@ -42,7 +38,7 @@
         nav li {
             list-style-type: none;
             display: inline-block;
-            margin-right: 1em;
+            margin-right: 0.5em;
             padding: 0.5em;
             background-color: #e0e0e0;
         }
@@ -63,9 +59,9 @@
     <![endif]-->
 }
 
-<div class="container row">
-    <header class="row">
-        <h1><a href="http://responsive.gs">Responsive.gs</a> Example</h1><h2>16-Column Responsive Grid</h2>
+<div class="pagewrap container">
+    <header class="row header-main">
+        <h1><a href="http://responsive.gs">Responsive.gs</a></h1><h2>Example: 16-Column Responsive Grid</h2>
     </header>
     <nav class="row">
         <ul>
@@ -91,7 +87,7 @@
         <article class="col span_1 bg4">&nbsp;</article><article class="col span_1 bg2">&nbsp;</article><article class="col span_1 bg4">&nbsp;</article><article class="col span_1 bg2">&nbsp;</article>
         <article class="col span_1 bg4">&nbsp;</article><article class="col span_1 bg2">&nbsp;</article><article class="col span_1 bg4">&nbsp;</article><article class="col span_1 bg2">&nbsp;</article>
     </section>
-    <footer class="row">
+    <footer class="clearfix">
         Copyright &copy; 2013 Aidan Ryan
     </footer>
 </div>

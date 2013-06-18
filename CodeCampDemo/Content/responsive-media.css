@@ -1,19 +1,21 @@
 ﻿body {
-    background: #ccc;
+  background: #ccc;
 }
+
 .pagewrap {
+    background-color: #222;
     border: #b0b0b0 1px solid;
     -webkit-box-shadow: 0.5em 0.5em 0.8em rgba(135, 135, 125, 0.8);
     box-shadow: 0.5em 0.5em 0.8em rgba(135, 135, 125, 0.8);
 }
+
 .header-main {
-    padding-left: 0.5em;
-    background-color: #66cdaa;
+  background-color: #b0ca00;
 }
 .header-sub {
-    padding-left: 0.5em;
-    background-color: #cdaa66;
+  background-color: #cccc00;
 }
+
 .image-group {
     padding-top: 0.5em;
 }

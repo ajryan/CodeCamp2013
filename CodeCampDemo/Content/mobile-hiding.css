@@ -1,43 +1,31 @@
-﻿header {
-  padding-left: 0.5em;
-  background-color: #66cdaa;
-}
-
-header h1 {
-  padding-top: 0.5em;
-  padding-bottom: 0.25em;
-}
+﻿/* desktop-first layout: right-float sidebar */
 
 .content {
   float: left;
   width: 66%;
-  padding: 0.5em;
 }
-
   .mobile .content {
     width: 100%;
     float: none;
   }
 
 .content p {
-  padding-bottom: 0.5em;
+  padding: 0.5em;
 }
 
 .sidebar {
   float: right;
-  width: 33%;
+  width: 34%;
   height: 100%;
   background-color: #e0e0e0;
   padding: 0.5em;
-
 }
-
   .sidebar li {
     margin-bottom: 0.5em;
   }
 
 table {
-  margin: 0.25em 0;
+  margin: 0.25em 0.5em;
 }
 table, td {
   border: 1px solid #333;
@@ -46,23 +34,22 @@ td {
   padding: 0.5em;
 }
 
+/* narrow screens: hide sidebar and shrink table text */
 @media only screen and (max-width: 48.25em) {
   .content {
     width: 100%;
   }
-
   .sidebar {
     display: none;
   }
-
   td {
     font-size: 0.75em;
   }
 }
 
+/* wide screens: content columns */
 @media only screen and (min-width: 70em) {
-  .bodytext
-  {
+  .bodytext {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;

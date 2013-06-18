@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 
-namespace CodeMasteryDemo.App_Start
+namespace CodeCampDemo.App_Start
 {
     public static class WebApiConfig
     {

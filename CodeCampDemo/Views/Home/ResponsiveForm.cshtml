@@ -1,4 +1,4 @@
-﻿@using CodeMasteryDemo.Helpers
+﻿@using CodeCampDemo.Helpers
 @{
     ViewBag.Title = "Responsive Form";
 }
@@ -44,7 +44,7 @@
         <h1>Responsive Form</h1>
     </header>
     <section>
-        <form class="responsive-form">
+        <form>
             <header class="header-sub">
                 <h2>Character Design</h2>
                 <h4>Please enter the details for your character profile.</h4>
@@ -84,7 +84,7 @@
 
             <div class="control-group">
                 <fieldset>
-                    <legend class="desc">Select a Class</legend>
+                    <legend class="desc">Select a Class<br/><span id="classnote"></span></legend>
                     <div class="control-entry">
                         <div class="choice-group">
                             <input id="class1" name="class" type="radio" value="Barbarian" tabindex="5" checked="checked">
@@ -102,7 +102,6 @@
                             <input id="class4" name="class" type="radio" value="Ranger" tabindex="8">
                             <label for="class4">Ranger</label>
                         </div>
-                        <div id="classnote"></div>
                     </div>
                 </fieldset>
             </div>

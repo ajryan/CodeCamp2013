@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CodeMasteryDemo.Helpers
+namespace CodeCampDemo.Helpers
 {
     public static class VideoHelpers
     {

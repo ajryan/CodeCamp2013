@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeMasteryDemo</RootNamespace>
-    <AssemblyName>CodeMasteryDemo</AssemblyName>
+    <RootNamespace>CodeCampDemo</RootNamespace>
+    <AssemblyName>CodeCampDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -152,6 +152,7 @@
     <Content Include="Content\responsive-gs-16col.css" />
     <Content Include="Content\responsive-gs-ie.css" />
     <Content Include="Content\responsive-media.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\video\motu\flowplayer-3.2.16.swf" />
     <Content Include="Content\video\motu\flowplayer.controls-3.2.15.swf" />
     <Content Include="Content\web_font_specimen.css" />

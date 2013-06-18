@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace CodeMasteryDemo.App_Start
+namespace CodeCampDemo.App_Start
 {
     public static class BundleConfig
     {
@@ -17,6 +17,10 @@ namespace CodeMasteryDemo.App_Start
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+
+            bundles.Add(new StyleBundle("~/bundles/base").Include(
+                "~/Content/reset.css",
+                "~/Content/site.css"));
         }
     }
 }

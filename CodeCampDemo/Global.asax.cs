@@ -3,9 +3,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using CodeMasteryDemo.App_Start;
+using CodeCampDemo.App_Start;
 
-namespace CodeMasteryDemo
+namespace CodeCampDemo
 {
     public class MvcApplication : System.Web.HttpApplication
     {

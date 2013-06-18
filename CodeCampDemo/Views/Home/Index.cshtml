@@ -1,12 +1,15 @@
-﻿@using CodeMasteryDemo.Helpers
+﻿@using CodeCampDemo.Helpers
 @{
-    ViewBag.Title = "Silicon Valley Code Camp 2013 - Responsive Re-Engineering";
+    ViewBag.Title = "Home";
 }
 
 <div class="pagewrap clearfix @Html.MobileClass()">
-    <h1>Silicon Valley Code Camp 2013 - Responsive Re-Engineering</h1>
-
-    <h2>Demos</h2>
+    <header class="header-main">
+        <h1>Responsive Re-Engineering &ndash; Silicon Valley Code Camp 2013</h1>
+    </header>
+    <header class="header-sub">
+        <h2>Demos</h2>
+    </header>
     <ul>
         <li>@Html.ActionLink("Responsive.gs Grid System", "ResponsiveGs")</li>
         <li>@Html.ActionLink("Output-cache friendly mobile hiding", "OutputCacheMobileHiding")</li>

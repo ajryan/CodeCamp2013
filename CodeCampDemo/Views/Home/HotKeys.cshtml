@@ -44,11 +44,12 @@
             .feed-entry-title {
                 font-weight: bold;
             }
-            .feed-entry.selected
-            {
+            .feed-entry.selected {
                 background-color: #cdf;
                 border: 1px solid #abe;
+                -webkit-box-shadow: 3px 3px 3px #5a5a5a;
                 -webkit-box-shadow: 3px 3px 3px rgba(90, 90, 90, .5);
+                box-shadow: 3px 3px 3px #5a5a5a;
                 box-shadow: 3px 3px 3px rgba(90, 90, 90, .5);
                 -moz-transition: all 0.1s ease-out;
                 -o-transition: all 0.1s ease-out;
@@ -70,17 +71,19 @@
                 float: left;
             }
 
-        .hotkey-help
-        {
+        .hotkey-help {
             position: fixed;
             top: 40px;
             left: 30%;
             width: 40%;
+            background: #050505;
             background: rgba(5, 5, 5, 0.9);
             color: #efefef;
             padding: 2em;
             border-radius: 0.75em;
+            -webkit-box-shadow: 5px 5px 5px #000000;
             -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 5px 5px 5px #000000;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
         }
 
@@ -151,8 +154,13 @@
                 }
             );
 
-            var toggleHidden = function($element, complete) {
-                $element.children('.feed-entry-content').slideToggle(200, complete);
+            var toggleHidden = function($element, complete, forceHide) {
+                var $content = $element.children('.feed-entry-content');
+                if (!forceHide) {
+                    $content.slideToggle(200, complete);
+                } else {
+                    $content.slideUp(200, complete);
+                }
             };
 
             var showFeedEntry = function($selectedEntry, $targetEntry) {
@@ -162,7 +170,7 @@
 
                 // hide the old entry's content
                 $selectedEntry.stop();
-                toggleHidden($selectedEntry);
+                toggleHidden($selectedEntry, null, true);
 
                 // show and scroll to the selected entry
                 toggleHidden($targetEntry, function() {
@@ -170,7 +178,7 @@
                     $('body').animate({
                         scrollTop: entryOffset.top - 20
                     }, 200);
-                });
+                }, false);
             };
 
             $(document).on('click', '.feed-entry', function() {
@@ -189,8 +197,14 @@
                 var $targetEntry = $selectedEntry.length && (event.keyCode === 74 ? $selectedEntry.next() : $selectedEntry.prev());
 
                 if ($targetEntry.length) {
-                    showFeedEntry($selectedEntry, $targetEntry)
+                    showFeedEntry($selectedEntry, $targetEntry);
                 }
+            });
+
+            $(document).bind('keyup.o', function(event) {
+                console.log(event.keyCode);
+                var $selectedEntry = $('.feed-entry.selected');
+                toggleHidden($selectedEntry, null, false);
             });
 
             $(document).bind('keyup', function(event) {
