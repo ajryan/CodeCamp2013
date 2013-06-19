@@ -138,6 +138,9 @@
             var template = Handlebars.compile(source);
             $('#feed').html(template(data.responseData.feed));
         };
+        @if (Request.Browser.IsMobileDevice) {
+            @:$.fx.off = true;
+        }
         $(function() {
             document.getElementById('fetch').addEventListener(
                 'click',
