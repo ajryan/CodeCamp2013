@@ -230,7 +230,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62880</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/CodeMasteryDemo</IISUrl>
+          <IISUrl>http://localhost/CodeCampDemo</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

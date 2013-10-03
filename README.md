@@ -8,3 +8,8 @@ This repository provides sample code as a companion to my Silicon Valley Code Ca
 
 1. Responsive.gs grid system
 2. OutputCache-Friendly hiding from mobile
+3. Responsive Media
+4. Responsive Form
+5. Typography
+6. Web Fonts
+7. Hotkeys
