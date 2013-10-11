@@ -4,6 +4,8 @@
 
 This repository provides sample code as a companion to my Silicon Valley Code Camp 2013 talk "Responsive Re-Engineering."
 
+Slides are on [SlideShare](https://www.slideshare.net/AidanRyan2/responsive-reengineering)
+
 ## Demos ##
 
 1. Responsive.gs grid system
