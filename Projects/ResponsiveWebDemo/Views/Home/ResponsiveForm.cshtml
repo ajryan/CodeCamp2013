@@ -1,0 +1,153 @@
+﻿@using ResponsiveWebDesignDemo.Helpers
+@{
+    ViewBag.Title = "Responsive Form";
+}
+
+@section styles {
+    @Styles.Render("~/Content/responsive-form.css")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(function() {
+            var supportTouch = document.getElementById('class1').hasOwnProperty('ontouchstart');
+            $('h1').append(supportTouch ? ' (Touch)' : ' (Mouse)');
+            
+            var $classNote = $('#classnote');
+
+            var showSelectedClass = function(selectedRadio) {
+                var selected = selectedRadio.val();
+                $classNote.append('<span>' + selected + '</span><br/>');
+                if (typeof console !== 'undefined') {
+                    console && console.log('showSelectedClass');
+                }
+            };
+
+            showSelectedClass($('#class1'));
+
+            $('input[type=radio]').on('click touchstart', function(event) {
+                if (supportTouch && event.type === 'click')
+                    return;
+
+                //$('input[type=radio]').removeAttr('checked');
+                var $this = $(this);
+                //$this.attr('checked', 'checked');
+                showSelectedClass($this);
+                if (typeof console !== 'undefined') {
+                    console && console.log(event.type);
+                }
+            });
+        });
+
+    </script>
+}
+
+<div class="pagewrap clearfix @Html.MobileClass()">
+    <header class="header-main">
+        <h1>Responsive Form</h1>
+    </header>
+    <section>
+        <form>
+            <header class="header-sub">
+                <h2>Character Design</h2>
+                <h4>Please enter the details for your character profile.</h4>
+            </header>
+
+            <h3 class="form-head">Your Info</h3>
+
+            <div class="control-group">
+                <label class="desc" for="fullName">Full Name</label>
+                <div class="control-entry">
+                    <input id="fullName" name="fullName" type="text" tabindex="1">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="desc" for="email">Email</label>
+                <div class="control-entry">
+                    <input id="email" name="email" type="email" spellcheck="false" tabindex="2">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="desc" for="phone">Phone Number</label>
+                <div class="control-entry">
+                    <input id="phone" name="phone" type="tel" spellcheck="false" tabindex="3">
+                </div>
+            </div>
+            
+            <h3 class="form-head">Character Info</h3>
+
+            <div class="control-group">
+                <label class="desc" for="bio">Bio</label>
+                <div class="control-entry">
+                    <textarea id="bio" name="bio" spellcheck="true" rows="10" tabindex="4"></textarea>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <fieldset>
+                    <legend class="desc">Select a Class<br/><span id="classnote"></span></legend>
+                    <div class="control-entry">
+                        <div class="choice-group">
+                            <input id="class1" name="class" type="radio" value="Barbarian" tabindex="5" checked="checked">
+                            <label for="class1">Barbarian</label>
+                        </div>
+                        <div class="choice-group">
+                            <input id="class2" name="class" type="radio" value="Cleric" tabindex="6">
+                            <label for="class2">Cleric</label>
+                        </div>
+                        <div class="choice-group">
+                            <input id="class3" name="class" type="radio" value="Druid" tabindex="7">
+                            <label for="class3">Druid</label>
+                        </div>
+                        <div class="choice-group">
+                            <input id="class4" name="class" type="radio" value="Ranger" tabindex="8">
+                            <label for="class4">Ranger</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="control-group">
+                <fieldset>
+                    <legend class="desc">Skills</legend>
+                    <div class="control-entry">
+                        <div class="choice-group">
+                            <input id="skill1" name="skill1" type="checkbox" value="Bluff" tabindex="9">
+                            <label for="skill1">Bluff</label>
+                        </div>
+                        <div class="choice-group">
+                            <input id="skill2" name="skill2" type="checkbox" value="Heal" tabindex="10">
+                            <label for="skill2">Heal</label>
+                        </div>
+                        <div class="choice-group">
+                            <input id="skill3" name="skill3" type="checkbox" value="Hide" tabindex="11">
+                            <label for="skill3">Hide</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="control-group">
+                <label class="desc" for="alignment">Alignment</label>
+                <div class="control-entry">
+                    <select id="alignment" name="alignment" tabindex="12">
+                        <option value="alignment1">Lawful Good</option>
+                        <option value="alignment2">Good</option>
+                        <option value="alignment3">Unaligned</option>
+                        <option value="alignment4">Evil</option>
+                        <option value="alignment5">Chaotic Evil</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="control-entry">
+                    <input id="saveForm" name="saveForm" type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>

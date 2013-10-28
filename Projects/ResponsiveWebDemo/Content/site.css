@@ -1,0 +1,64 @@
+﻿/* Base layout */
+body
+{
+    background: white;
+    font: 100%/1.2 sans-serif;
+    color: #333;
+}
+
+.pagewrap
+{
+    background-color: #efefef;
+    width: 90%;
+    height: 100%;
+    margin: 0.5em auto 1em auto;
+    overflow: hidden;
+    -webkit-box-shadow: 0.6em 0.6em 0.5em rgba(5, 5, 5, 0.8);
+    box-shadow: 0.6em 0.6em 0.5em rgba(5, 5, 5, 0.8);
+}
+
+    .pagewrap.mobile
+    {
+        width: 100%;
+        margin-top: 0;
+    }
+
+.header-main, footer
+{
+    background-color: #B0E4C1;
+    padding: 0.5em;
+}
+
+.header-sub
+{
+    background-color: #D3EDDC;
+    padding: 0.5em;
+}
+
+@media only screen and (max-width: 48.25em)
+{
+    .pagewrap
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+/* Utility */
+.clearfix:before,
+.pagewrap:after
+{
+    content: "\0020";
+    display: table;
+}
+
+.clearfix:after
+{
+    clear: both;
+}
+
+.clearfix
+{
+    *zoom: 1;
+}
