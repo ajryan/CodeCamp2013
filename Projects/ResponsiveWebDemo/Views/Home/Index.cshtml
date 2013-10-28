@@ -1,0 +1,24 @@
+﻿@using ResponsiveWebDesignDemo.Helpers
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="pagewrap clearfix @Html.MobileClass()">
+    <header class="header-main">
+        <h1>Responsive Web Design</h1>
+    </header>
+    <header class="header-sub">
+        <h2>Demos</h2>
+    </header>
+    <ul>
+        <li>@Html.ActionLink("Bootstrap Theme", "BootstrapTheme")</li>
+        <li>@Html.ActionLink("HotKeys", "HotKeys")</li>
+        <li>@Html.ActionLink("Output-cache friendly mobile hiding", "OutputCacheMobileHiding")</li>
+        <li>@Html.ActionLink("Responsive Form", "ResponsiveForm")</li>
+        <li>@Html.ActionLink("Responsive.gs Grid System", "ResponsiveGs")</li>
+        <li>@Html.ActionLink("Responsive Media", "ResponsiveMedia")</li>
+        <li>@Html.ActionLink("Typography", "Typography")</li>
+        <li><a href="@Url.Content("~/web_font_specimen.html")">Web Font Specimen</a></li>
+
+    </ul>
+</div>

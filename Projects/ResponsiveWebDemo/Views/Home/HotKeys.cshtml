@@ -1,0 +1,289 @@
+﻿@{
+    ViewBag.Title = "Hotkeys";
+}
+
+@section styles {
+    <style type="text/css">
+        /* Form */
+
+        form
+        {
+            padding: 1em;
+        }
+
+        label
+        {
+            width: 15%;
+            padding-right: 0.5em;
+            display: inline-block;
+        }
+
+        input
+        {
+            width: 85%;
+        }
+
+        button
+        {
+            display: block;
+            margin-left: 15%;
+        }
+
+        /* Feed */
+        .feed-meta
+        {
+            margin: 0 0 0.5em 0.5em;
+            font-weight: bold;
+        }
+
+        .feed-entry
+        {
+            margin: 0 1em 1em 1em;
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            background-color: #fafafa;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -moz-transition: all 0.1s ease-in;
+            -o-transition: all 0.1s ease-in;
+            -webkit-transition: all 0.1s ease-in;
+            transition: all 0.1s ease-in;
+        }
+
+        .feed-entry-title
+        {
+            font-weight: bold;
+        }
+
+        .feed-entry.selected
+        {
+            background-color: #cdf;
+            border: 1px solid #abe;
+            -webkit-box-shadow: 3px 3px 3px #5a5a5a;
+            -webkit-box-shadow: 3px 3px 3px rgba(90, 90, 90, .5);
+            box-shadow: 3px 3px 3px #5a5a5a;
+            box-shadow: 3px 3px 3px rgba(90, 90, 90, .5);
+            -moz-transition: all 0.1s ease-out;
+            -o-transition: all 0.1s ease-out;
+            -webkit-transition: all 0.1s ease-out;
+            transition: all 0.1s ease-out;
+        }
+
+
+        .feed-entry-content
+        {
+            overflow: hidden;
+        }
+            /*.feed-entry-content.hidden {
+                display: none;
+                visibility: hidden;
+            }*/
+            .feed-entry-content img
+            {
+                margin: 0 0.5em 0.5em 0;
+                max-width: 50%;
+                float: left;
+            }
+
+        .hotkey-help
+        {
+            position: fixed;
+            top: 40px;
+            left: 30%;
+            width: 40%;
+            background: #050505;
+            background: rgba(5, 5, 5, 0.9);
+            color: #efefef;
+            padding: 2em;
+            border-radius: 0.75em;
+            -webkit-box-shadow: 5px 5px 5px #000000;
+            -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 5px 5px 5px #000000;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .key
+        {
+            font-weight: bold;
+        }
+
+        @@media screen and (min-width: 66em)
+        {
+            label
+            {
+                text-align: right;
+            }
+
+            .feed-entry-content img
+            {
+                max-width: 35%;
+            }
+        }
+
+        @@media screen and (max-width: 40em)
+        {
+            label
+            {
+                display: block;
+                width: 100%;
+            }
+
+            input
+            {
+                width: 100%;
+            }
+
+            button
+            {
+                margin-left: 0;
+            }
+
+            .feed-entry, .feed-entry.selected
+            {
+                margin: 0 0 0.5em 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .feed-entry-content img
+            {
+                max-width: 100%;
+                float: none;
+            }
+
+            .hotkey-help
+            {
+                width: 80%;
+                left: 10%;
+            }
+        }
+    </style>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/handlebars")
+
+    <script type="text/javascript">
+        var feedCallback = function (data) {
+            if (typeof console !== 'undefined') {
+                console.log(data.responseData.feed);
+            }
+            var source = $('#feed-template').html();
+            var template = Handlebars.compile(source);
+            $('#feed').html(template(data.responseData.feed));
+        };
+        @if (Request.Browser.IsMobileDevice)
+        {
+            @:$.fx.off = true;
+        }
+        $(function () {
+            document.getElementById('fetch').addEventListener(
+                'click',
+                function (event) {
+                    event.preventDefault();
+
+                    var feedUrl = $('#feedUrl').val() || 'http://feeds.feedburner.com/arstechnica';
+                    var apiUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&q=' + feedUrl;
+                    $.ajax({
+                        url: apiUrl,
+                        dataType: 'jsonp',
+                        jsonpCallback: 'feedCallback'
+                    });
+                }
+            );
+
+            var toggleHidden = function ($element, complete, forceHide) {
+                var $content = $element.children('.feed-entry-content');
+                if (!forceHide) {
+                    $content.slideToggle(200, complete);
+                } else {
+                    $content.slideUp(200, complete);
+                }
+            };
+
+            var showFeedEntry = function ($selectedEntry, $targetEntry) {
+                // give the target selected highlighting
+                $selectedEntry.toggleClass('selected');
+                $targetEntry.toggleClass('selected');
+
+                // hide the old entry's content
+                $selectedEntry.stop();
+                toggleHidden($selectedEntry, null, true);
+
+                // show and scroll to the selected entry
+                toggleHidden($targetEntry, function () {
+                    var entryOffset = $targetEntry.offset();
+                    $('body').animate({
+                        scrollTop: entryOffset.top - 20
+                    }, 200);
+                }, false);
+            };
+
+            $(document).on('click', '.feed-entry', function () {
+                var $target = $(this);
+                if (!$target.hasClass('selected')) {
+                    showFeedEntry($('.feed-entry.selected'), $target);
+                }
+            });
+
+            $(document).bind('keyup.j.k', function (event) {
+                console.log(event.keyCode);
+                var $selectedEntry = $('.feed-entry.selected');
+
+                // keyCode 74 (j): next
+                // keyCode 75 (k): prev
+                var $targetEntry = $selectedEntry.length && (event.keyCode === 74 ? $selectedEntry.next() : $selectedEntry.prev());
+
+                if ($targetEntry.length) {
+                    showFeedEntry($selectedEntry, $targetEntry);
+                }
+            });
+
+            $(document).bind('keyup.o', function (event) {
+                console.log(event.keyCode);
+                var $selectedEntry = $('.feed-entry.selected');
+                toggleHidden($selectedEntry, null, false);
+            });
+
+            $(document).bind('keyup', function (event) {
+                if (event.keyCode === 191 && event.shiftKey) {
+                    $('.hotkey-help').toggle();
+                }
+            });
+        });
+    </script>
+}
+
+<div class="pagewrap clearfix">
+    <header class="header-main">
+        <h1>Hotkeys</h1>
+    </header>
+    <form id="input">
+        <label for="feedUrl">Feed URL:</label><input type="text" id="feedUrl" value="http://feeds.feedburner.com/arstechnica"/>
+        <button id="fetch">Fetch</button>
+    </form>
+    <section id="feed"></section>
+    <script id="feed-template" type="text/x-handlebars-template">
+        {{feed}}
+            <div class="feed-meta">
+                <div>Title: {{title}}</div>
+                <div>Description: {{description}}</div>
+            </div>
+            <section id="feed-entries">
+            {{#entries}}
+                <article class="feed-entry {{#unless @@index}}selected{{/unless}}">
+                    <div class="feed-entry-title">Title: <a href="{{link}}">{{title}}</a></div>
+                    <div>Author: {{author}}</div>
+                    <div class="feed-entry-content"  {{#if @@index}}style="display: none"{{/if}}>{{{content}}}</div>
+                </article>
+            {{/entries}}
+            </section>
+    </script>
+</div>
+<div class="hotkey-help" style="display: none">
+    <h3>Hotkeys</h3>
+    <div><span class="key">j</span>: Next</div>
+    <div><span class="key">k</span>: Prev</div>
+    <div><span class="key">?</span>: Help</div>
+</div>

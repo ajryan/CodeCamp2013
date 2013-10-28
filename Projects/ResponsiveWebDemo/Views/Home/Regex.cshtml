@@ -1,0 +1,92 @@
+﻿@using ResponsiveWebDesignDemo.Helpers
+@{
+    ViewBag.Title = "Regex";
+}
+
+@section styles {
+    <style type="text/css">
+        .container {
+            padding: 1em;
+        }
+        fieldset {
+            margin: 0.5em 0;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+        }
+        .fieldgroup {
+            margin-bottom: 0.5em;
+        }
+        label {
+            width: 5em;
+            display: inline-block;
+            vertical-align: top;
+        }
+        input, textarea {
+            width: 30em;
+        }
+    </style>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/handlebars.js")
+    <script type="text/javascript">
+        $(function() {
+            $("#eval").on('click', function() {
+                var regex = $('#regex').val();
+                var target = $('#target').val();
+                var url = encodeURI('@Url.RouteUrl("DefaultApi", new {httproute = "", controller = "Regex"})?regex=' + regex + '&target=' + target);
+                $.getJSON(
+                    url,
+                    function(data) {
+                        var source = $('#mapping-template').html();
+                        var template = Handlebars.compile(source);
+                        $('#result-output').html(template({ matches: data }));
+                    }
+                );
+            });
+        });
+    </script>
+}
+
+<div class="pagewrap clearfix @Html.MobileClass()">
+    <h1>Regex</h1>
+
+    <section class="entry">
+        <fieldset>
+            <legend>Enter Regex</legend>
+            <div class="fieldgroup">
+                <label for="regex">Regex:</label><input id="regex" type="text" name="regex" />
+            </div>
+            <div class="fieldgroup">
+                <label for="target">Text:</label><textarea id="target" name="target"></textarea>
+            </div>
+            <button id="eval">Evaluate</button>
+        </fieldset>
+    </section>
+    <section class="result">
+        <fieldset>
+            <legend>Result</legend>
+            <div id="result-output"></div>
+            <script id="mapping-template" type="text/x-handlebars-template">
+                    <ul>
+                    {{#matches}}
+                        <li>Match {{Index}}</li>
+                        <ul>
+                        {{#Groups}}
+                            <li>Group {{Index}}</li>
+                            <ul>
+                            {{#Captures}}
+                                <li>Capture {{Index}}</li>
+                                <li>Position {{Position}}</li>
+                                <li>Value {{Value}}</li>
+                            {{/Captures}}
+                            </ul>
+                        {{/Groups}}
+                        </ul>
+                    {{/matches}}
+                    </ul>
+                </script>
+        </fieldset>
+    </section>
+</div>
