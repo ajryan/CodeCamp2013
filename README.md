@@ -1,7 +1,7 @@
 # Silicon Valley Code Camp 2013 - Responsive Web Design #
 
-[Aidan Ryan](http://www.aidanjryan.com) ([Magenic](http://magenic.com))
-[Dan Haster](http://geekswithblogs.net/danielh/Default.aspx) ([Magenic] (http://magenic.com))
+By [Aidan Ryan](http://www.aidanjryan.com) ([Magenic](http://magenic.com))<br/>
+With [Dan Hester](http://geekswithblogs.net/danielh/Default.aspx) ([Magenic] (http://magenic.com/AboutMagenic/ThoughtLeadership/VTSP))
 
 This repository provides sample code as a companion to my Silicon Valley Code Camp 2013 talk "Responsive Re-Engineering."
 
