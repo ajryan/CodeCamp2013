@@ -1,7 +1,7 @@
 ﻿/* Base layout */
 body
 {
-    background: white;
+    background: #191919 url(images/body_bg.png) left top repeat;
     font: 100%/1.2 sans-serif;
     color: #333;
 }
